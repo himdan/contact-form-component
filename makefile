@@ -1,52 +1,57 @@
 .PHONY: up down build logs clean ps reset test
 
 up:
-	docker-compose up -d
+	docker compose  up -d
 
 down:
-	docker-compose down
+	docker compose  down
 
 build:
-	docker-compose build
+	docker compose  build
 
 logs:
-	docker-compose logs -f
+	docker compose  logs -f
 
 clean:
-	docker-compose down -v
+	docker compose  down -v
 	docker system prune -f
 
 ps:
-	docker-compose ps
+	docker compose  ps
 
 reset:
-	docker-compose down -v
-	docker-compose up --build -d
+	docker compose  down -v
+	docker compose  up --build -d
 
 test:
-	docker-compose exec backend npm test
+	docker compose  exec backend npm test
 
 backend-shell:
-	docker-compose exec backend sh
+	docker compose  exec backend sh
 
 db-shell:
-	docker-compose exec postgres psql -U postgres -d contact_db
+	docker compose  exec postgres psql -U postgres -d contact_db
 
 frontend-logs:
-	docker-compose logs -f frontend
+	docker compose  logs -f frontend
 
 backend-logs:
-	docker-compose logs -f backend
+	docker compose  logs -f backend
 
 db-logs:
-	docker-compose logs -f postgres
+	docker compose  logs -f postgres
 
 # Production commands
 prod-build:
-	docker-compose -f docker-compose.yml -f docker-compose.prod.yml build
+	docker compose  -f docker-compose.yml -f docker-compose.prod.yml build
+prod-build-backend:
+	docker compose  -f docker-compose.yml -f docker-compose.prod.yml build backend
 
 prod-up:
-	docker-compose -f docker-compose.yml -f docker-compose.prod.yml up -d
+	docker compose  -f docker-compose.yml -f docker-compose.prod.yml up -d
+
+prod-up-backend:
+	docker compose  -f docker-compose.yml -f docker-compose.prod.yml up -d backend
 
 prod-down:
-	docker-compose -f docker-compose.yml -f docker-compose.prod.yml down
+	docker compose  -f docker-compose.yml -f docker-compose.prod.yml down

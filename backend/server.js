@@ -64,8 +64,7 @@ function createPool() {
     password: process.env.DB_PASSWORD,
     max: parseInt(process.env.DB_MAX_CONNECTIONS) || 20,
     idleTimeoutMillis: 30000,
-    connectionTimeoutMillis: 5000,
-    ssl: process.env.NODE_ENV === 'production' ? { rejectUnauthorized: false } : false
+    connectionTimeoutMillis: 5000
   });
 
   pool.on('error', (err) => {

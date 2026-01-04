@@ -26,7 +26,6 @@ services:
       DB_NAME: ${DB_NAME}
       DB_USER: ${DB_USER}
       DB_PASSWORD: ${DB_PASSWORD}
-      CORS_ORIGIN: ${PROD_CORS_ORIGIN}
       PORT: ${BACKEND_PORT}
       ADMIN_API_KEY: ${ADMIN_API_KEY}
     restart: unless-stopped
@@ -40,8 +39,6 @@ services:
   frontend:
     build:
       context: ./frontend
-    environment:
-      API_URL: ${PROD_API_URL}
     restart: unless-stopped
     deploy:
       resources:
