@@ -201,8 +201,6 @@ class ContactForm extends HTMLElement {
       </style>
       
       <div class="form-container">
-        <h2>Send us a Message</h2>
-        
         <div id="message" class="message" style="display: none;"></div>
         
         <form id="contactForm" novalidate>
@@ -254,10 +252,6 @@ class ContactForm extends HTMLElement {
             Send Message
           </button>
         </form>
-        
-        <div class="api-info">
-          API Endpoint: <code>${apiUrl}</code>
-        </div>
       </div>
     `;
   }
